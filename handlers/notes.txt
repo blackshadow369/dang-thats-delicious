@@ -1,0 +1,33 @@
+div.wrapper
+//-   - const upName = name.toUpperCase();
+//-   p.p-class hello 
+//-     em #{upName}
+//-     span#id_in_pug    welcome  
+//-   img(src="image.png" alt="image")
+
+//- h2
+//-   | hello
+//-   em how are you
+
+
+router 
+    router.get('/reverse/:name', (req,res) => {
+    let name = req.params.name;
+    console.log(name.split('').reverse().join(''));
+    res.send(name.split('').reverse().join(''));
+    });
+
+Creating store model
+    models are where we describe template for a data to be saved in database
+
+generating slug and using pre save method
+    storeSchema.pre('save',function(next){
+    if(!this.isModified('name'))
+    {
+        return next();
+    }
+    this.slug = slug(this.name);
+    next();
+    
+    });
+    we still have to make changes to avoid overlapping of slug names when stores have similar names

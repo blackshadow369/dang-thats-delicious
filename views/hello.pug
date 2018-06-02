@@ -1,0 +1,15 @@
+//- div.wrapper
+//-   - const upName = name.toUpperCase();
+//-   p.p-class hello 
+//-     em #{upName}
+//-     span#id_in_pug    welcome  
+//-   img(src="image.png" alt="image")
+
+//- h2
+//-   | hello
+//-   em how are you
+
+extends layout
+
+block content
+  p hey sale ends  #{h.moment().endOf('day').fromNow()}
